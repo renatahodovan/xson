@@ -1,0 +1,6 @@
+include README.rst
+include LICENSE.rst
+include MANIFEST.in
+include xson/VERSION
+global-exclude __pycache__
+global-exclude *.py[co]
