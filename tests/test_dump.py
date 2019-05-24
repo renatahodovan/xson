@@ -124,10 +124,10 @@ exp_ordereddict_mixedkeys = '''
     # check_circular (default: True)
     (val_circular_list, {}, ValueError),
     (val_circular_list, {'check_circular': True}, ValueError),
-    (val_circular_list, {'check_circular': False}, RecursionError),
+    (val_circular_list, {'check_circular': False}, RuntimeError),
     (val_circular_dict, {}, ValueError),
     (val_circular_dict, {'check_circular': True}, ValueError),
-    (val_circular_dict, {'check_circular': False}, RecursionError),
+    (val_circular_dict, {'check_circular': False}, RuntimeError),
     # allow_nan (default: True)
     (val_nan, {}, exp_nan_allownan),
     (val_nan, {'allow_nan': True}, exp_nan_allownan),
