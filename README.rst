@@ -3,6 +3,8 @@ XSON
 ====
 *XML Encoding for JSON*
 
+.. image:: https://badge.fury.io/py/xson.svg
+   :target: https://badge.fury.io/py/xson
 .. image:: https://travis-ci.org/renatahodovan/xson.svg?branch=master
    :target: https://travis-ci.org/renatahodovan/xson
 .. image:: https://coveralls.io/repos/github/renatahodovan/xson/badge.svg?branch=master
@@ -31,7 +33,11 @@ Requirements
 Install
 =======
 
-By cloning the project and running setuptools::
+The quick way::
+
+    pip install xson
+
+Alternatively, by cloning the project and running setuptools::
 
     python setup.py install
 
