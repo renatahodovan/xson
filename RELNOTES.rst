@@ -2,6 +2,15 @@
 *XSON* Release Notes
 ====================
 
+1.0.1
+=====
+
+Summary of changes:
+
+* Install instructions include pip.
+* Automatic SemVer with the help of setuptools_scm.
+
+
 1.0.0
 =====
 
