@@ -5,10 +5,10 @@
 # This file may not be copied, modified, or distributed except
 # according to those terms.
 
-import pkgutil
+import pkg_resources
 
 
-__version__ = pkgutil.get_data(__package__, 'VERSION').decode('ascii').strip()
+__version__ = pkg_resources.get_distribution(__package__).version
 
 JSONX_PREFIX = 'json'
 JSONX_NS_URI = 'http://www.ibm.com/xmlns/prod/2009/jsonx'
