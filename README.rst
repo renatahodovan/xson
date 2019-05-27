@@ -3,6 +3,10 @@ XSON
 ====
 *XML Encoding for JSON*
 
+.. image:: https://travis-ci.org/renatahodovan/xson.svg?branch=master
+   :target: https://travis-ci.org/renatahodovan/xson
+.. image:: https://coveralls.io/repos/github/renatahodovan/xson/badge.svg?branch=master
+   :target: https://coveralls.io/github/renatahodovan/xson?branch=master
 
 *XSON* is a Python package that supports the serialization of Python objects to
 XML documents according to the JSONx_ specification (draft), as well as the
