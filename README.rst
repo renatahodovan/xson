@@ -22,7 +22,7 @@ being API-compatible with Python's standard JSON_ package.
 Requirements
 ============
 
-* Python_ >= 3.4
+* Python_ >= 3.5
 * pip_ and setuptools Python packages (the latter is automatically installed by
   pip)
 
