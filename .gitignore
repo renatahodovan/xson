@@ -10,3 +10,4 @@ dist
 .pytest_cache
 .tox
 .coverage*
+docs/_build

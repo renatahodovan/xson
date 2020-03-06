@@ -2,6 +2,8 @@
 *XSON* Release Notes
 ====================
 
+.. start included documentation
+
 1.0.1
 =====
 

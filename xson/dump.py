@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2020 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -20,7 +20,7 @@ def dump(obj, fp, *, skipkeys=False, check_circular=True, allow_nan=True, indent
     :param obj: Value to be serialized.
     :param fp: File-like object to write JSONx :class:`str` to.
     :param bool skipkeys: If true, then dictionary keys that are not of a basic
-        type (:class:`str`, :class:`int`, :class:`float`, :class`bool`,
+        type (:class:`str`, :class:`int`, :class:`float`, :class:`bool`,
         ``None``) will be skipped. Otherwise, a :exc:`TypeError` is raised.
         (Default: ``False``)
     :param bool check_circular: If false, then the circular reference check for

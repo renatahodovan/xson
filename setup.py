@@ -24,6 +24,12 @@ setup(
     install_requires=[
         'setuptools',
     ],
+    extras_require={
+        'docs': [
+            'sphinx',
+            'sphinx_rtd_theme',
+        ]
+    },
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',

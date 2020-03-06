@@ -10,6 +10,8 @@ XSON
 .. image:: https://coveralls.io/repos/github/renatahodovan/xson/badge.svg?branch=master
    :target: https://coveralls.io/github/renatahodovan/xson?branch=master
 
+.. start included documentation
+
 *XSON* is a Python package that supports the serialization of Python objects to
 XML documents according to the JSONx_ specification (draft), as well as the
 deserialization of JSONx documents to Python objects. The implementation aims at
@@ -45,11 +47,13 @@ Alternatively, by cloning the project and running setuptools::
 Usage
 =====
 
-Example::
+Example:
+
+.. doctest::
 
     >>> import xson
     >>> out = xson.dumps({'foo': 42, 'bar': [3.14, 'baz', True, None]}, indent=4)
-    >>> print(out)
+    >>> print(out)  #doctest: +NORMALIZE_WHITESPACE
     <?xml version="1.0" encoding="UTF-8"?>
     <json:object xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx">
         <json:number name="foo">42</json:number>
@@ -64,6 +68,8 @@ Example::
     >>> dct = xson.loads(out)
     >>> print(dct)
     {'foo': 42, 'bar': [3.14, 'baz', True, None]}
+
+.. end included documentation
 
 
 Copyright and Licensing

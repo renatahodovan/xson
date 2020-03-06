@@ -16,6 +16,8 @@ jobs:
       env: TOXENV=py
     - python: 3.5
       env: TOXENV=lint
+    - python: 3.6
+      env: TOXENV=docs
 
     - stage: coverage
       python: 3.5
