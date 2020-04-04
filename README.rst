@@ -3,12 +3,14 @@ XSON
 ====
 *XML Encoding for JSON*
 
-.. image:: https://badge.fury.io/py/xson.svg
-   :target: https://badge.fury.io/py/xson
-.. image:: https://travis-ci.org/renatahodovan/xson.svg?branch=master
+.. image:: https://img.shields.io/pypi/v/xson?logo=python&logoColor=white
+   :target: https://pypi.org/project/xson/
+.. image:: https://img.shields.io/pypi/l/xson?logo=open-source-initiative&logoColor=white
+   :target: https://pypi.org/project/xson/
+.. image:: https://img.shields.io/travis/renatahodovan/xson/master?logo=travis&logoColor=white
    :target: https://travis-ci.org/renatahodovan/xson
-.. image:: https://coveralls.io/repos/github/renatahodovan/xson/badge.svg?branch=master
-   :target: https://coveralls.io/github/renatahodovan/xson?branch=master
+.. image:: https://img.shields.io/coveralls/github/renatahodovan/xson/master?logo=coveralls&logoColor=white
+   :target: https://coveralls.io/github/renatahodovan/xson
 
 .. start included documentation
 
