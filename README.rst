@@ -51,25 +51,22 @@ Usage
 
 Example:
 
-.. doctest::
-
-    >>> import xson
-    >>> out = xson.dumps({'foo': 42, 'bar': [3.14, 'baz', True, None]}, indent=4)
-    >>> print(out)  #doctest: +NORMALIZE_WHITESPACE
-    <?xml version="1.0" encoding="UTF-8"?>
-    <json:object xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx">
-        <json:number name="foo">42</json:number>
-        <json:array name="bar">
-            <json:number>3.14</json:number>
-            <json:string>baz</json:string>
-            <json:boolean>true</json:boolean>
-            <json:null/>
-        </json:array>
-    </json:object>
-
-    >>> dct = xson.loads(out)
-    >>> print(dct)
-    {'foo': 42, 'bar': [3.14, 'baz', True, None]}
+>>> import xson
+>>> out = xson.dumps({'foo': 42, 'bar': [3.14, 'baz', True, None]}, indent=4)
+>>> print(out)  #doctest: +NORMALIZE_WHITESPACE
+<?xml version="1.0" encoding="UTF-8"?>
+<json:object xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx">
+    <json:number name="foo">42</json:number>
+    <json:array name="bar">
+        <json:number>3.14</json:number>
+        <json:string>baz</json:string>
+        <json:boolean>true</json:boolean>
+        <json:null/>
+    </json:array>
+</json:object>
+>>> dct = xson.loads(out)
+>>> print(dct)
+{'foo': 42, 'bar': [3.14, 'baz', True, None]}
 
 .. end included documentation
 
