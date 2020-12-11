@@ -4,6 +4,15 @@
 
 .. start included documentation
 
+1.0.3
+=====
+
+Summary of changes:
+
+* Fixed doctest embedded in readme to meet the requirements of packaging.
+* Improved testing to check the validity of package metadata.
+
+
 1.0.2
 =====
 
