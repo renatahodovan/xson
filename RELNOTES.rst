@@ -4,6 +4,17 @@
 
 .. start included documentation
 
+1.0.2
+=====
+
+Summary of changes:
+
+* Improved testing (on Python 3.8, on Windows, on macOS).
+* Improved package metadata.
+* Sphinx can be used to generate documentation.
+* CI migrated from Travis CI to GitHub Actions.
+
+
 1.0.1
 =====
 
