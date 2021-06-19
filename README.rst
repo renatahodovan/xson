@@ -27,8 +27,7 @@ Requirements
 ============
 
 * Python_ >= 3.5
-* pip_ and setuptools Python packages (the latter is automatically installed by
-  pip)
+* pip_
 
 .. _Python: https://www.python.org
 .. _pip: https://pip.pypa.io
@@ -41,9 +40,9 @@ The quick way::
 
     pip install xson
 
-Alternatively, by cloning the project and running setuptools::
+Alternatively, by cloning the project and performing a local install::
 
-    python setup.py install
+    pip install .
 
 
 Usage
