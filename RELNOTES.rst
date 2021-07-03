@@ -4,6 +4,15 @@
 
 .. start included documentation
 
+1.0.4
+=====
+
+Summary of changes:
+
+* Moved to pyproject.toml & setup.cfg-based packaging.
+* Improved testing (on Python 3.9).
+
+
 1.0.3
 =====
 
