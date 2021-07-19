@@ -17,7 +17,7 @@ XSON
 *XSON* is a Python package that supports the serialization of Python objects to
 XML documents according to the JSONx_ specification (draft), as well as the
 deserialization of JSONx documents to Python objects. The implementation aims at
-being API-compatible with Python's standard JSON_ package.
+being API and CLI-compatible with Python's standard JSON_ package.
 
 .. _JSONx: https://tools.ietf.org/html/draft-rsalz-jsonx-00
 .. _JSON: https://docs.python.org/3/library/json.html
@@ -61,6 +61,9 @@ local install::
 Usage
 =====
 
+API
+---
+
 Example:
 
 >>> import xson
@@ -79,6 +82,18 @@ Example:
 >>> dct = xson.loads(out)
 >>> print(dct)
 {'foo': 42, 'bar': [3.14, 'baz', True, None]}
+
+CLI
+---
+
+A command line tool is available to validate, pretty-print, or convert between
+JSONx and JSON objects::
+
+    xson-tool --help
+
+or::
+
+    python -m xson.tool --help
 
 .. end included documentation
 
