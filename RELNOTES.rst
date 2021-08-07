@@ -4,6 +4,18 @@
 
 .. start included documentation
 
+1.1.0
+=====
+
+Summary of changes:
+
+* Added command line tool (or module) xson-tool (or xson.tool) to validate,
+  pretty-print, or convert between JSONx and JSON objects (highly CLI-compatible
+  with the standard json.tool module).
+* Improved documentation.
+* Improved testing (on PyPy).
+
+
 1.0.4
 =====
 
