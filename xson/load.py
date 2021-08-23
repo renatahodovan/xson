@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2021 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -50,9 +50,9 @@ class JSONxHandler(ContentHandler, ErrorHandler):
             self._expect(key is not None, 'element within an object element must have a name attribute')
 
         if localname == 'object':
-            self.stack.append(JSONxElement(localname, key, list()))
+            self.stack.append(JSONxElement(localname, key, []))
         elif localname == 'array':
-            self.stack.append(JSONxElement(localname, key, list()))
+            self.stack.append(JSONxElement(localname, key, []))
         elif localname in ('string', 'number', 'boolean'):
             self.stack.append(JSONxElement(localname, key, StringIO()))
         elif localname == 'null':
