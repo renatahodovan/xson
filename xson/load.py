@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2021 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2022 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -34,16 +34,16 @@ class JSONxHandler(ContentHandler, ErrorHandler):
         self.stack = [JSONxElement('root', None, None)]
 
     def startElement(self, name, attrs):
-        self._expect(False, 'unsupported non-namespaced element %s' % name)
+        self._expect(False, f'unsupported non-namespaced element {name}')
 
     def endElement(self, name):
         assert False, 'SAX parser must ensure that non-namespaced end of element does not occur'
 
     def startElementNS(self, name, qname, attrs):
         uri, localname = name
-        self._expect(uri == JSONX_NS_URI, 'unsupported namespace URI %s' % uri)
+        self._expect(uri == JSONX_NS_URI, f'unsupported namespace URI {uri}')
 
-        self._expect(self.stack[-1].localname in ('root', 'object', 'array'), '%s element cannot contain other elements' % self.stack[-1].localname)
+        self._expect(self.stack[-1].localname in ('root', 'object', 'array'), f'{self.stack[-1].localname} element cannot contain other elements')
 
         key = attrs[(None, 'name')] if (None, 'name') in attrs else None
         if self.stack[-1].localname == 'object':
@@ -58,7 +58,7 @@ class JSONxHandler(ContentHandler, ErrorHandler):
         elif localname == 'null':
             self.stack.append(JSONxElement(localname, key, None))
         else:
-            self._expect(False, 'unsupported element %s' % localname)
+            self._expect(False, f'unsupported element {localname}')
 
     def endElementNS(self, name, qname):
         uri, localname = name
@@ -102,14 +102,14 @@ class JSONxHandler(ContentHandler, ErrorHandler):
         elif container.localname == 'array':
             container.value.append(value)
         else:
-            assert False, 'unexpected container element %s' % container.localname
+            assert False, f'unexpected container element {container.localname}'
 
     def characters(self, content):
         element = self.stack[-1]
         if isinstance(element.value, StringIO):
             element.value.write(content)
         else:
-            self._expect(content.isspace(), '%s element must not have non-whitespace character content %s' % (element.localname, content))
+            self._expect(content.isspace(), f'{element.localname} element must not have non-whitespace character content {content}')
 
     def error(self, exception):
         self._expect(False, exception.getMessage())
@@ -122,7 +122,7 @@ class JSONxHandler(ContentHandler, ErrorHandler):
 
     def _expect(self, expr, msg):
         if not expr:
-            raise ValueError('%s [line %s, column %s]' % (msg, self._locator.getLineNumber(), self._locator.getColumnNumber()))
+            raise ValueError(f'{msg} [line {self._locator.getLineNumber()}, column {self._locator.getColumnNumber()}]')
 
 
 def load(fp, *, object_hook=None, parse_float=None, parse_int=None, parse_constant=None, object_pairs_hook=None):

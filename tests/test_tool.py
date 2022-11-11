@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2021-2022 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -117,14 +117,14 @@ def test_tool(indent_arg, indent_jsonx, indent_json, infile, outfile, infile_jso
         cmd += [indent_arg]
 
     if infile:
-        infile = os.path.join(str(tmpdir), 'in' + input_ext)
+        infile = os.path.join(str(tmpdir), f'in{input_ext}')
         with open(infile, 'w') as f:
             f.write(input)
         cmd += [infile]
         input = None
 
     if outfile:
-        outfile = os.path.join(str(tmpdir), 'out' + output_ext)
+        outfile = os.path.join(str(tmpdir), f'out{output_ext}')
         cmd += [outfile]
         stdout = None
     else:
