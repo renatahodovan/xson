@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2020 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2022 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -80,7 +80,7 @@ def dump(obj, fp, *, skipkeys=False, check_circular=True, allow_nan=True, indent
                 for k, v in sorted(value.items(), key=lambda kv: kv[0]) if sort_keys else value.items():
                     if k is not None and not isinstance(k, (str, int, float, bool)):
                         if not skipkeys:
-                            raise TypeError('dictionary key is not of a basic type: %r' % (k,))
+                            raise TypeError(f'dictionary key is not of a basic type: {k!r}')
                         continue
                     _dump(v, name=_str(k))
 
@@ -130,7 +130,7 @@ def dump(obj, fp, *, skipkeys=False, check_circular=True, allow_nan=True, indent
 
         elif isinstance(value, (int, float)):
             if not allow_nan and (isinf(value) or isnan(value)):
-                raise ValueError('float value is out of range: %r' % value)
+                raise ValueError(f'float value is out of range: {value!r}')
 
             gen.startElementNS((JSONX_NS_URI, 'number'), None, attrs=_attrs(name))
             gen.characters(_str(value))
@@ -144,7 +144,7 @@ def dump(obj, fp, *, skipkeys=False, check_circular=True, allow_nan=True, indent
             _dump(default(value), name=name)
 
         else:
-            raise TypeError('cannot serialize object: %r' % (value,))
+            raise TypeError(f'cannot serialize object: {value!r}')
 
         if indent is not None:
             gen.ignorableWhitespace('\n')

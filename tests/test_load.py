@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2022 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -44,7 +44,7 @@ inp_one = '''
 exp_one_str = '$int: 1'
 
 def parse_int_str(s):
-    return '$int: %s' % s
+    return f'$int: {s}'
 
 inp_pi = '''
 <?xml version="1.0" encoding="UTF-8"?>
@@ -53,7 +53,7 @@ inp_pi = '''
 exp_pi_str = '$float: 3.14'
 
 def parse_float_str(s):
-    return '$float: %s' % s
+    return f'$float: {s}'
 
 inp_nan = '''
 <?xml version="1.0" encoding="UTF-8"?>
@@ -74,7 +74,7 @@ inp_neginf = '''
 exp_neginf_str = '$constant: -Infinity'
 
 def parse_constant_str(s):
-    return '$constant: %s' % s
+    return f'$constant: {s}'
 
 @pytest.mark.parametrize('inp, kw, exp', [
     # object_hook (default: None)
