@@ -7,7 +7,7 @@ XSON
    :target: https://pypi.org/project/xson/
 .. image:: https://img.shields.io/pypi/l/xson?logo=open-source-initiative&logoColor=white
    :target: https://pypi.org/project/xson/
-.. image:: https://img.shields.io/github/workflow/status/renatahodovan/xson/main/master?logo=github&logoColor=white
+.. image:: https://img.shields.io/github/actions/workflow/status/renatahodovan/xson/main.yml?branch=master&logo=github&logoColor=white
    :target: https://github.com/renatahodovan/xson/actions
 .. image:: https://img.shields.io/coveralls/github/renatahodovan/xson/master?logo=coveralls&logoColor=white
    :target: https://coveralls.io/github/renatahodovan/xson
