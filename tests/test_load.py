@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2022 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2023 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -8,7 +8,7 @@
 import os
 import pytest
 
-from math import isnan
+from math import inf, isnan, nan
 
 import xson
 
@@ -94,14 +94,14 @@ def parse_constant_str(s):
     (inp_pi, {'parse_float': None}, float(3.14)),
     (inp_pi, {'parse_float': parse_float_str}, exp_pi_str),
     # parse_constant (default: None/float)
-    (inp_nan, {}, float('nan')),
-    (inp_nan, {'parse_constant': None}, float('nan')),
+    (inp_nan, {}, nan),
+    (inp_nan, {'parse_constant': None}, nan),
     (inp_nan, {'parse_constant': parse_constant_str}, exp_nan_str),
-    (inp_inf, {}, float('inf')),
-    (inp_inf, {'parse_constant': None}, float('inf')),
+    (inp_inf, {}, inf),
+    (inp_inf, {'parse_constant': None}, inf),
     (inp_inf, {'parse_constant': parse_constant_str}, exp_inf_str),
-    (inp_neginf, {}, float('-inf')),
-    (inp_neginf, {'parse_constant': None}, float('-inf')),
+    (inp_neginf, {}, -inf),
+    (inp_neginf, {'parse_constant': None}, -inf),
     (inp_neginf, {'parse_constant': parse_constant_str}, exp_neginf_str),
 ])
 def test_load(inp, kw, exp, tmpdir):

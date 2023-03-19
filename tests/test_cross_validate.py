@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2023 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -7,6 +7,8 @@
 
 import json
 import pytest
+
+from math import inf
 
 import xson
 
@@ -24,20 +26,20 @@ import xson
     42,
     3.14,
     -1.28,
-    float('inf'),
-    float('-inf'),
+    inf,
+    -inf,
     # string (str)
     '',
     'foo',
     # array (list)
     [],
-    [ None, True, False, 0, 1, -1, 42, 3.14, -1.28, float('inf'), float('-inf'), '', 'foo', [], {} ],
+    [ None, True, False, 0, 1, -1, 42, 3.14, -1.28, inf, -inf, '', 'foo', [], {} ],
     # object (dict)
     {},
     { None: None },
     { True: True, False: False },
-    { 0: 0, 1: 1, -1: -1, 42: 42, 3.14: 3.14, -1.28: -1.28, float('inf'): float('inf'), float('-inf'): float('-inf') },
-    { '': None, 'a': True, 'b': False, 'c': 0, 'd': 1, 'e': -1, 'foo': 42, 'g': 3.14, 'h': -1.28, 'i': float('inf'), 'j': float('-inf'), 'k': '', 'l': 'foo', 'm': [], 'n': {} },
+    { 0: 0, 1: 1, -1: -1, 42: 42, 3.14: 3.14, -1.28: -1.28, inf: inf, -inf: -inf },
+    { '': None, 'a': True, 'b': False, 'c': 0, 'd': 1, 'e': -1, 'foo': 42, 'g': 3.14, 'h': -1.28, 'i': inf, 'j': -inf, 'k': '', 'l': 'foo', 'm': [], 'n': {} },
 ])
 def test_cross_validate(value):
     xson_repr = xson.dumps(value)
