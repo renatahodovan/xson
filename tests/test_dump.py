@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2023 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -9,6 +9,7 @@ import os
 import pytest
 
 from collections import OrderedDict
+from math import inf, nan
 
 import xson
 
@@ -25,19 +26,19 @@ val_circular_list.append(val_circular_list)
 val_circular_dict = {}
 val_circular_dict[None] = val_circular_dict
 
-val_nan = float('nan')
+val_nan = nan
 exp_nan_allownan = '''
 <?xml version="1.0" encoding="UTF-8"?>
 <json:number xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx">NaN</json:number>
 '''
 
-val_inf = float('inf')
+val_inf = inf
 exp_inf_allownan = '''
 <?xml version="1.0" encoding="UTF-8"?>
 <json:number xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx">Infinity</json:number>
 '''
 
-val_neginf = float('-inf')
+val_neginf = -inf
 exp_neginf_allownan = '''
 <?xml version="1.0" encoding="UTF-8"?>
 <json:number xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx">-Infinity</json:number>
