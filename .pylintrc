@@ -10,15 +10,15 @@
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
 disable=
-    useless-option-value,
-    line-too-long, fixme, missing-docstring, invalid-name, no-self-use, unused-argument,
-    wildcard-import, unused-wildcard-import, ungrouped-imports,
-    too-many-arguments, too-many-locals,
-    too-many-statements, too-many-return-statements, too-many-branches,
-    too-many-instance-attributes, too-few-public-methods,
-    redefined-builtin, broad-except, protected-access,
-    useless-object-inheritance, unnecessary-pass, duplicate-code,
-    consider-using-f-string
+    line-too-long,
+    missing-docstring,
+    no-self-use,  # disables warning in older pylint
+    too-few-public-methods,
+    too-many-arguments,
+    too-many-branches,
+    too-many-statements,
+    useless-object-inheritance,
+    useless-option-value,  # disables warning in recent pylint that does not check for no-self-use anymore
 
 [REPORTS]
 
