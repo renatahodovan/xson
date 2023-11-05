@@ -1,4 +1,4 @@
-# Copyright (c) 2019-2022 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2023 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -13,7 +13,7 @@ from xml.sax.handler import ContentHandler, ErrorHandler, feature_namespaces
 from .pkgdata import JSONX_NS_URI
 
 
-class JSONxElement(object):
+class JSONxElement:
     def __init__(self, localname, key, value):
         self.localname = localname
         self.key = key

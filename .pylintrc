@@ -17,7 +17,6 @@ disable=
     too-many-arguments,
     too-many-branches,
     too-many-statements,
-    useless-object-inheritance,
     useless-option-value,  # disables warning in recent pylint that does not check for no-self-use anymore
 
 [REPORTS]
