@@ -10,12 +10,15 @@
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
 disable=
+    duplicate-code,
+    invalid-name,
     line-too-long,
     missing-docstring,
     no-self-use,  # disables warning in older pylint
     too-few-public-methods,
     too-many-arguments,
     too-many-branches,
+    too-many-locals,
     too-many-statements,
     useless-option-value,  # disables warning in recent pylint that does not check for no-self-use anymore
 

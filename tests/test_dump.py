@@ -6,10 +6,11 @@
 # according to those terms.
 
 import os
-import pytest
 
 from collections import OrderedDict
 from math import inf, nan
+
+import pytest
 
 import xson
 
@@ -96,10 +97,12 @@ exp_tuple_default = '''
 <json:array xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx"><json:number>1</json:number><json:number>2</json:number></json:array>
 '''
 
+
 def tuple_default(val):
     if isinstance(val, tuple):
         return list(val)
     raise TypeError
+
 
 val_ordereddict = OrderedDict([(4, 3), (2, 1)])
 exp_ordereddict = '''
@@ -116,6 +119,7 @@ exp_ordereddict_mixedkeys = '''
 <?xml version="1.0" encoding="UTF-8"?>
 <json:object xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx"><json:string name="a">b</json:string><json:number name="1">2</json:number></json:object>
 '''
+
 
 @pytest.mark.parametrize('val, kw, exp', [
     # skipkeys (default: False)
@@ -175,9 +179,9 @@ def test_dump(val, kw, exp, tmpdir):
 
     def _dump():
         tmpfn = os.path.join(str(tmpdir), 'tmp.jsonx')
-        with open(tmpfn, 'w') as tmpf:
+        with open(tmpfn, 'w', encoding='utf-8') as tmpf:
             xson.dump(val, tmpf, **kw)
-        with open(tmpfn, 'r') as tmpf:
+        with open(tmpfn, 'r', encoding='utf-8') as tmpf:
             return tmpf.read()
 
     for dump in (_dumps, _dump):

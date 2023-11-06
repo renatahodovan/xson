@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2021-2023 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -6,11 +6,10 @@
 # according to those terms.
 
 import os
-import pytest
 import subprocess
 import sys
 
-import xson
+import pytest
 
 
 question_json = '''
@@ -94,49 +93,49 @@ def test_tool(indent_arg, indent_jsonx, indent_json, infile, outfile, infile_jso
     cmd = [sys.executable, '-m', 'xson.tool', '--sort-keys']
 
     if infile_json:
-        input = question_json
-        input_ext = '.json'
+        inp = question_json
+        infile_ext = '.json'
         cmd += ['--infile-json']
     else:
-        input = question_jsonx
-        input_ext = '.jsonx'
-    input = input.strip()
+        inp = question_jsonx
+        infile_ext = '.jsonx'
+    inp = inp.strip()
 
     if outfile_json:
-        expected = question_json
-        expected = indent_json(expected)
-        output_ext = '.json'
+        exp = question_json
+        exp = indent_json(exp)
+        outfile_ext = '.json'
         cmd += ['--outfile-json']
     else:
-        expected = question_jsonx
-        expected = indent_jsonx(expected)
-        output_ext = '.jsonx'
-    expected = expected.strip()
+        exp = question_jsonx
+        exp = indent_jsonx(exp)
+        outfile_ext = '.jsonx'
+    exp = exp.strip()
 
     if indent_arg:
         cmd += [indent_arg]
 
     if infile:
-        infile = os.path.join(str(tmpdir), f'in{input_ext}')
-        with open(infile, 'w') as f:
-            f.write(input)
-        cmd += [infile]
-        input = None
+        infile_name = os.path.join(str(tmpdir), f'in{infile_ext}')
+        with open(infile_name, 'w', encoding='utf-8') as f:
+            f.write(inp)
+        cmd += [infile_name]
+        inp = None
 
     if outfile:
-        outfile = os.path.join(str(tmpdir), f'out{output_ext}')
-        cmd += [outfile]
+        outfile_name = os.path.join(str(tmpdir), f'out{outfile_ext}')
+        cmd += [outfile_name]
         stdout = None
     else:
         stdout = subprocess.PIPE
 
-    result = subprocess.run(cmd, input=input, stdout=stdout, universal_newlines=True, check=True)
+    result = subprocess.run(cmd, input=inp, stdout=stdout, universal_newlines=True, check=True)
 
     if outfile:
-        with open(outfile, 'r') as f:
-            output = f.read()
+        with open(outfile_name, 'r', encoding='utf-8') as f:
+            out = f.read()
     else:
-        output = result.stdout
-    output = output.strip()
+        out = result.stdout
+    out = out.strip()
 
-    assert output == expected
+    assert out == exp
