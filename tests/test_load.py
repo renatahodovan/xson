@@ -6,9 +6,10 @@
 # according to those terms.
 
 import os
-import pytest
 
 from math import inf, isnan, nan
+
+import pytest
 
 import xson
 
@@ -26,10 +27,12 @@ exp_tuple_dict = {'$tuple': [1, 2]}
 exp_tuple = (1, 2)
 exp_list = [1, 2]
 
+
 def tuple_object_hook(obj):
     if '$tuple' in obj:
         return tuple(obj['$tuple'])
     return obj
+
 
 def tuple_list_object_pairs_hook(pairs):
     obj = dict(pairs)
@@ -37,14 +40,17 @@ def tuple_list_object_pairs_hook(pairs):
         return list(obj['$tuple'])
     return obj
 
+
 inp_one = '''
 <?xml version="1.0" encoding="UTF-8"?>
 <json:number xmlns:json="http://www.ibm.com/xmlns/prod/2009/jsonx">1</json:number>
 '''
 exp_one_str = '$int: 1'
 
+
 def parse_int_str(s):
     return f'$int: {s}'
+
 
 inp_pi = '''
 <?xml version="1.0" encoding="UTF-8"?>
@@ -52,8 +58,10 @@ inp_pi = '''
 '''
 exp_pi_str = '$float: 3.14'
 
+
 def parse_float_str(s):
     return f'$float: {s}'
+
 
 inp_nan = '''
 <?xml version="1.0" encoding="UTF-8"?>
@@ -73,8 +81,10 @@ inp_neginf = '''
 '''
 exp_neginf_str = '$constant: -Infinity'
 
+
 def parse_constant_str(s):
     return f'$constant: {s}'
+
 
 @pytest.mark.parametrize('inp, kw, exp', [
     # object_hook (default: None)
@@ -110,9 +120,9 @@ def test_load(inp, kw, exp, tmpdir):
 
     def _load():
         tmpfn = os.path.join(str(tmpdir), 'tmp.jsonx')
-        with open(tmpfn, 'w') as tmpf:
+        with open(tmpfn, 'w', encoding='utf-8') as tmpf:
             tmpf.write(inp.strip())
-        with open(tmpfn, 'r') as tmpf:
+        with open(tmpfn, 'r', encoding='utf-8') as tmpf:
             return xson.load(tmpf, **kw)
 
     for load in (_loads, _load):

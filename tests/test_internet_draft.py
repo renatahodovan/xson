@@ -1,4 +1,4 @@
-# Copyright (c) 2019 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2019-2023 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -6,6 +6,7 @@
 # according to those terms.
 
 import json
+
 import pytest
 
 import xson
@@ -124,6 +125,7 @@ example_xson = '''
     <json:boolean name="remote">false</json:boolean>
 </json:object>
 '''
+
 
 @pytest.mark.parametrize('json_inp, xson_exp', [
     (object_json, object_xson),
