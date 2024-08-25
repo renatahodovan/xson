@@ -4,6 +4,20 @@
 
 .. start included documentation
 
+1.1.1
+=====
+
+Summary of changes:
+
+* Moved project from flat layout to src layout.
+* Improved code internals.
+* Improved testing (on Python 3.10, 3.11, 3.12, 3.13, and on PyPy 3.11; also
+  linting tests).
+* Improved package metadata.
+* Improved documentation (switched to furo theme).
+* Dropped support for Python 3.5, 3.6, 3.7, and 3.8.
+
+
 1.1.0
 =====
 
