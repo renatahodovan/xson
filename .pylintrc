@@ -19,6 +19,7 @@ disable=
     too-many-arguments,
     too-many-branches,
     too-many-locals,
+    too-many-positional-arguments,
     too-many-statements,
     useless-option-value,  # disables warning in recent pylint that does not check for no-self-use anymore
 
