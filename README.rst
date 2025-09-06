@@ -26,7 +26,7 @@ being API and CLI-compatible with Python's standard JSON_ package.
 Requirements
 ============
 
-* Python_ >= 3.8
+* Python_ >= 3.9
 
 .. _Python: https://www.python.org
 
