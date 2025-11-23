@@ -1,4 +1,4 @@
-# Copyright (c) 2021 Renata Hodovan, Akos Kiss.
+# Copyright (c) 2021-2025 Renata Hodovan, Akos Kiss.
 #
 # Licensed under the BSD 3-Clause License
 # <LICENSE.rst or https://opensource.org/licenses/BSD-3-Clause>.
@@ -7,11 +7,21 @@
 
 import sys
 
-from argparse import ArgumentParser, FileType
+from argparse import ArgumentParser
+from contextlib import contextmanager
 from json import dump as json_dump, load as json_load
 
 from .dump import dump as xson_dump
 from .load import load as xson_load
+
+
+@contextmanager
+def open_with_default(file, mode, encoding, default):
+    if file:
+        with open(file, mode, encoding=encoding) as f:
+            yield f
+    else:
+        yield default
 
 
 def execute():
@@ -20,9 +30,9 @@ def execute():
         pretty-print, and convert between JSONx and JSON objects.
     ''')
 
-    parser.add_argument('infile', nargs='?', type=FileType('r', encoding='utf-8'), default=sys.stdin,
+    parser.add_argument('infile', nargs='?',
                         help='input file to be validated or pretty-printed (default: stdin)')
-    parser.add_argument('outfile', nargs='?', type=FileType('w', encoding='utf-8'), default=sys.stdout,
+    parser.add_argument('outfile', nargs='?',
                         help='write the output of infile to outfile (default: stdout)')
     parser.add_argument('--sort-keys', action='store_true',
                         help='sort the output of dictionaries alphabetically by key')
@@ -45,9 +55,9 @@ def execute():
     load = json_load if args.infile_json else xson_load
     dump = json_dump if args.outfile_json else xson_dump
 
-    with args.infile as infile:
+    with open_with_default(args.infile, 'r', encoding='utf-8', default=sys.stdin) as infile:
         obj = load(infile)
-    with args.outfile as outfile:
+    with open_with_default(args.outfile, 'w', encoding='utf-8', default=sys.stdout) as outfile:
         dump(obj, outfile, sort_keys=args.sort_keys, indent=args.indent)
 
 
