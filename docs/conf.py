@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 project = 'XSON'
 author = 'Renata Hodovan, Akos Kiss'
-copyright = '2019-2025, %s' % author
+copyright = '2019-2026, %s' % author
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
