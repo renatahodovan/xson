@@ -4,6 +4,18 @@
 
 .. start included documentation
 
+1.1.2
+=====
+
+Summary of changes:
+
+* Improved tool internals (replaced deprecated constructs)
+* Improved testing (on Python 3.14 and 3.15, and on PyPy 3.12; also coverage
+  measurement of subprocesses).
+* Improved package metadata.
+* Dropped support for Python 3.9.
+
+
 1.1.1
 =====
 
